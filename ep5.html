@@ -1,0 +1,28 @@
+<html>
+<body>
+    <div id="root">
+        <button :title="title" :disabled="isLoading" @click="countdown">Click me</button>
+        <div :hidden="!isLoading">LOADING</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#root',
+            data: {
+                title: 'Now the title is being set trough javascript',
+                isLoading: false,
+            },
+            methods: {
+                countdown() {
+                    this.isLoading = true;
+                    setTimeout(() => {
+                        this.isLoading = false;
+                        
+                    }, 1000)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
