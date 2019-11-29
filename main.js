@@ -16,6 +16,32 @@ Vue.component('task-list', {
     }
 });
 
+Vue.component('message', {
+    data() {
+        return {
+            isVisible: true
+        }
+    },
+    props: ['title', 'body'],
+    template: `
+    <article class="message" v-show="isVisible">
+        <div class="message-header">
+            {{ title }}
+            <button class="delete" type="button" @click="hideModal">X</button>
+
+        </div>
+        <div class="message-body">
+            {{ body }}
+        </div>
+    </article>
+    `,
+    methods: {
+        hideModal() {
+            this.isVisible = false
+        }
+    }
+});
+
 new Vue({
     el: '#root'
 });
